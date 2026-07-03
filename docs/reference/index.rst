@@ -19,3 +19,4 @@ Contents
    default-extensions
    rst-syntax
    myst-syntax
+   syntax
