@@ -350,6 +350,9 @@ For internal references, both Markdown and MyST syntax are supported. In most ca
 should use MyST syntax though, because it resolves the link text automatically and gives
 an indication of the link in GitHub rendering.
 
+For referencing pages from other documentation sets, you can use
+{ref}`Intersphinx <how-to-link-docs-intersphinx>``.
+
 (a_section_target_myst)=
 
 #### Referencing a section
@@ -378,11 +381,6 @@ or title for the targeted element, you must specify a link text.
 * - `` {ref}`link text <a_random_target_myst>` ``
   - {ref}`link text <a_random_target_myst>`
   - References a target and specifies a title.
-* - `` {ref}`project_key:an_external_target` ``
-  - Default link text
-  - You can also reference targets in other Sphinx projects. `project-key` must be a key
-    in the `intersphinx_mapping` dictionary in `conf.py`. The link text defaults to the
-    target's title.
 * - ``[`xyz`](a_random_target_myst)``
   - [`xyz`](a_random_target_myst)
   - Use Markdown syntax if you need markup on the link text.

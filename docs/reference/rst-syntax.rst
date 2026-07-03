@@ -415,7 +415,8 @@ To override the title, add the ``:title:`` option.
 Internal references
 ~~~~~~~~~~~~~~~~~~~
 
-You can reference pages and targets in this documentation set, and also in other documentation sets using Intersphinx.
+You can reference pages and targets in this documentation set. For referencing pages from other documentation sets,
+you can use :ref:`Intersphinx <how-to-link-docs-intersphinx>`.
 
 
 .. _a_section_target:
@@ -447,9 +448,6 @@ You can add targets at any place in the documentation. However, if there is no h
    * - ``:ref:`Provided link text <a_random_target>```
      - :ref:`Provided link text <a_random_target>`
      - References a target and specifies a title.
-   * - ``:external+project_key:ref:`an_external_target```
-     - Default link text
-     - You can also reference targets in other Sphinx projects. ``project-key`` must be a key in the ``intersphinx_mapping`` dictionary in ``conf.py``. The link text defaults to the target's title.
 
 Adhere to the following conventions:
 
@@ -473,10 +471,6 @@ If a documentation page does not have a target, you can still reference it by us
      - :doc:`index`
    * - ``:doc:`Provided link text <index>```
      - :doc:`Provided link text <index>`
-   * - ``:external+project_key:doc:`howto/index```
-     - Default link text (from document title)
-   * - ``:external+project_key:doc:`Provided link text <how-to/index>```
-     - Provided link text
 
 Adhere to the following conventions:
 
@@ -488,9 +482,6 @@ Adhere to the following conventions:
   changes.
 - Never "override" the link text with the same text that would be generated
   automatically.
-- When using an external target, ``project_key`` must be a key in the
-  ``intersphinx_mapping`` dictionary in ``conf.py``.
-
 
 Navigation
 ----------
