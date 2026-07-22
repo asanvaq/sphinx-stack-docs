@@ -43,6 +43,8 @@
 "reference/rst-syntax-reference/" "reference/rst-syntax"
 "reference/style-guide/" "reference/rst-syntax"
 "reference/doc-cheat-sheet/" "reference/rst-syntax"
+"reference/myst-syntax" "reference/syntax"
+"reference/rst-syntax" ""reference/syntax"
 
 "reference/doc-cheat-sheet-myst" "reference/myst-syntax-reference"
 "reference/style-guide-myst" "reference/myst-syntax-reference"
