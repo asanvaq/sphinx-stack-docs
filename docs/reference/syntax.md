@@ -31,39 +31,39 @@ Guide](https://docs.ubuntu.com/styleguide/en).
 ```{list-table}
 :header-rows: 1
 
-* - MyST
-  - reST
-  - Description
-* - `# Title`
+* - Description
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - Page title and H1 heading
   - ```
     Title
     =====
     ```
-  - Page title and H1 heading
-* - `## Heading`
+  - `# Title`
+* - H2 heading
   - ```
     Heading
     -------
     ```
-  - H2 heading
-* - `### Heading`
+  - `## Heading`
+* - H3 heading
   - ```
     Heading
     ~~~~~~~
     ```
-  - H3 heading
-* - `#### Heading`
+  - `### Heading`
+* - H4 heading
   - ```
     Heading
     ^^^^^^^
     ```
-  - H4 heading
-* - `##### Heading`
+  - `#### Heading`
+* - H5 heading
   - ```
     Heading
     .......
     ```
-  - H5 heading
+  - `##### Heading`
 ```
 
 In reST, underlines must be at least as long as the title or heading.
@@ -73,30 +73,30 @@ In reST, underlines must be at least as long as the title or heading.
 ```{list-table}
 :header-rows: 1
 
-* - MyST
-  - reST
-  - Output
-* - `` {guilabel}`UI element` ``
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - {guilabel}`UI element`
   - `` :guilabel:`UI element` ``
-  - {guilabel}`UI element`
-* - `` `code` ``
+  - `` {guilabel}`UI element` ``
+* - `code`
   - ```` ``code`` ````
-  - `code`
-* - `` {file}`file path` ``
+  - `` `code` ``
+* - {file}`file path`
   - `` :file:`file path` ``
-  - {file}`file path`
-* - `` {command}`command` ``
+  - `` {file}`file path` ``
+* - {command}`command`
   - `` :command:`command` ``
-  - {command}`command`
-* - `` {kbd}`Key` ``
+  - `` {command}`command` ``
+* - {kbd}`Key`
   - `` :kbd:`Key` ``
-  - {kbd}`Key`
-* - `*Italic*`
+  - `` {kbd}`Key` ``
+* - *Italic*
   - `*Italic*`
-  - *Italic*
-* - `**Bold**`
+  - `*Italic*`
+* - **Bold**
   - `**Bold**`
-  - **Bold**
+  - `**Bold**`
 ```
 
 ## Code blocks
@@ -117,8 +117,9 @@ and indent the following code block, or explicitly start a code block with ``..
 code::``. In both cases, the code block must be surrounded by empty lines.
 
 ````
-Demonstrate a code block::
+End of paragraph::
 
+  # Demonstrate a code block
   code:
   - example: true
 ````
@@ -135,7 +136,7 @@ Or use the explicit directive:
 `````
 
 `````{tab-item} MyST
-Start an````d end a code block with three back ticks:
+Start and end a code block with three back ticks:
 
 ````
 ```
@@ -208,7 +209,7 @@ output line 2
 output line 3
 ```
 
-By default, everything before the fireST blank line in the directive's content is
+By default, everything before the first blank line in the directive's content is
 rendered as input, while any content that follows is rendered as output. The terminal
 directive can only display one input command, but that command can span multiple lines,
 as in the previous example.
@@ -575,7 +576,7 @@ To override the title, add the ``:title:`` option.
 
 You can reference pages and targets in this documentation set.
 For referencing pages from other documentation sets, you can use
-{ref}`Intersphinx <how-to-link-docs-intersphinx>``.
+{ref}`Intersphinx <how-to-link-docs-intersphinx>`.
 
 (a_section_target_myst)=
 
@@ -693,19 +694,19 @@ link text. When overriding the link text, use Markdown syntax.
 
 ``````
 
-Adhere to the following conventions:
+Only use the `doc` role when you cannot use the `ref` role, thus only
+if there is no target at the top of the file and you cannot add it.
+When using the `doc` role, your reference will break when a file is
+renamed or moved.
 
-- Only use the `doc` role when you cannot use the `ref` role, thus only if there is
-  no target at the top of the file and you cannot add it. When using the `doc` role,
-  your reference will break when a file is renamed or moved.
-- Override the link text only when it is necessary. If you can use the document title as
-  link text, do so, because the text will then update automatically if the title
-  changes.
+Override the link text only when it is necessary. If you can use the
+document title as link text, do so, because the text will then update
+automatically if the title changes.
 
 ## Navigation
 
-Every documentation page must be included as a sub-page to another page in the
-navigation.
+Every documentation page must be included as a sub-page to another page
+in the navigation.
 
 This is achieved with the
 [`toctree`](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree)
@@ -747,150 +748,111 @@ To exclude pages from the build, add them to the `custom_excludes` variable in t
 
 ## Lists
 
-``````{tab-set}
+```{list-table}
+:header-rows: 1
 
-`````{tab-item} Output
-- Item 1
-- Item 2
-- Item 3
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - - Item 1
+    - Item 2
+    - Item 3
+  - ````
+    - Item 1
+    - Item 2
+    - Item 3
+    ````
+  - ````
+    - Item 1
+    - Item 2
+    - Item 3
+    ````
+* - 1. Step 1
+    1. Step 2
+    1. Step 3
+  - ````
+    1. Step 1
+    #. Step 2
+    #. Step 3
+    ````
+  - Use `1.` for all items:
 
-1. Step 1
-1. Step 2
-1. Step 3
-
-a. Step 1
-b. Step 2
-c. Step 3
-`````
-
-`````{tab-item} reST
-Unordered list:
-
-````
-- Item 1
-- Item 2
-- Item 3
-````
-
-Numbered list:
-
-````
-1. Step 1
-#. Step 2
-#. Step 3
-````
-
-Alphabetical list:
-
-````
-a. Step 1
-#. Step 2
-#. Step 3
-````
-`````
-
-`````{tab-item} MyST
-Unordered list:
-
-````
-- Item 1
-- Item 2
-- Item 3
-````
-
-Numbered list (use `1.` for all items):
-
-````
-1. Step 1
-1. Step 2
-1. Step 3
-````
-`````
-
-``````
+    ````
+    1. Step 1
+    1. Step 2
+    1. Step 3
+    ````
+* - <ol type="a"><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol>
+  - ````
+    a. Step 1
+    #. Step 2
+    #. Step 3
+    ````
+  - N/A
+```
 
 You can also nest lists:
 
-``````{tab-set}
+```{list-table}
+:header-rows: 1
 
-`````{tab-item} Output
-1. Step 1
-   - Item 1
-     * Sub-item
-   - Item 2
-1. Step 2
-   1. Sub-step 1
-   1. Sub-step 2
-`````
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - <ol><li>Step 1<ul><li>Item 1<ul><li>Sub-item</li></ul></li><li>Item 2</li></ul></li><li>Step 2<ol><li>Sub-step 1</li><li>Sub-step 2</li></ol></li></ol>
+  - ````
+    1. Step 1
 
-`````{tab-item} reST
-````
-1. Step 1
+      - Item 1
 
-  - Item 1
+        * Sub-item
+      - Item 2
 
-    * Sub-item
-  - Item 2
+        i. Sub-step 1
+        #. Sub-step 2
 
-    i. Sub-step 1
-    #. Sub-step 2
+    #. Step 2
 
-#. Step 2
+      a. Sub-step 1
 
-  a. Sub-step 1
+        - Item
 
-    - Item
-
-  #. Sub-step 2
-````
-`````
-
-`````{tab-item} MyST
-````
-1. Step 1
-   - Item 1
-     * Sub-item
-   - Item 2
-1. Step 2
-   1. Sub-step 1
-   1. Sub-step 2
-````
-`````
-
-``````
+      #. Sub-step 2
+    ````
+  - ````
+    1. Step 1
+       - Item 1
+         * Sub-item
+       - Item 2
+    1. Step 2
+       1. Sub-step 1
+       1. Sub-step 2
+    ````
+```
 
 ### Definition lists
 
-``````{tab-set}
+```{list-table}
+:header-rows: 1
 
-`````{tab-item} Output
-Term 1
-: Definition
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - <dl><dt>Term 1</dt><dd>Definition</dd><dt>Term 2</dt><dd>Definition</dd></dl>
+  - ````
+    Term 1:
+      Definition
+    Term 2:
+      Definition
+    ````
+  - ````
+    Term 1
+    : Definition
 
-Term 2
-: Definition
-`````
-
-`````{tab-item} reST
-````
-Term 1:
-  Definition
-Term 2:
-  Definition
-````
-`````
-
-`````{tab-item} MyST
-````
-Term 1
-: Definition
-
-Term 2
-: Definition
-````
-`````
-
-``````
+    Term 2
+    : Definition
+    ````
+```
 
 ## Tables
 
@@ -952,9 +914,7 @@ See [grid tables](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.
 
 #### List tables
 
-See `list tables
-<https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table>`__ for
-reference.
+See [list tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) for reference.
 
 ``````{tab-set}
 
@@ -1080,140 +1040,99 @@ The Sphinx Stack can also render interactive tables. See: {ref}`interactive-tabl
 
 ## Notes
 
-```````{tab-set}
-
-``````{tab-item} reST
-````{list-table}
+```{list-table}
 :header-rows: 1
 
-* - Input
-  - Output
-* - ```
-    .. note::
-      A note.
-    ```
-  - ```{note}
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - ```{note}
     A note.
     ```
-* - ```
-    .. warning::
-      This might damage your hardware!
-    ```
-  - ```{caution}
-    This might damage your hardware!
-    ```
-````
-``````
-
-``````{tab-item} MyST
-`````{list-table}
-:header-rows: 1
-
-* - Input
-  - Output
-* - ````
+  - ````
+    .. note::
+      A note.
+    ````
+  - ````
     ```{note}
     A note.
     ```
     ````
-  - ```{note}
-    A note.
+* - ```{tip}
+    A tip.
     ```
-* - ````
+  - N/A
+  - ````
     ```{tip}
     A tip.
     ```
     ````
-  - ```{tip}
-    A tip.
-    ```
-* - ````
-    ```{important}
-    Important information
-    ```
-    ````
-  - ```{important}
+* - ```{important}
     Important information.
     ```
-* - ````
-    ```{caution}
-    This might damage your hardware!
+  - N/A
+  - ````
+    ```{important}
+    Important information.
     ```
     ````
-  - ```{caution}
-    This might damage your hardware!
+* - ```{warning}
+    Warning!
     ```
-`````
-``````
-
-```````
+  - ````
+    .. warning::
+      Warning!
+    ````
+  - ````
+    ```{warning}
+    Warning!
+    ```
+    ````
+```
 
 ## Images
 
-``````{tab-set}
-
-`````{tab-item} reST
-````{list-table}
+```{list-table}
 :header-rows: 1
 
-* - Input
-  - Output
-* - ```
-    .. image:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - ![Canonical logo](https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png)
+  - ````
+    .. image:: /images/image.png
+    ````
+  - ````
+    ![Alt text](/images/image.png)
+    ````
+* - ```{figure} /images/image.png
+       :width: 100px
+       :alt: Alt text
+
+       Figure caption
     ```
-  - ![Canonical logo](https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png)
-* - ```
-    .. figure:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
+  - ````
+    .. figure:: /images/image.png
       :width: 100px
       :alt: Alt text
 
       Figure caption
-    ```
-  - ```{figure} https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
-       :width: 100px
-       :alt: Alt text
-
-       Figure caption
-    ```
-````
-`````
-
-`````{tab-item} MyST
-````{list-table}
-:header-rows: 1
-
-* - Input
-  - Output
-* - ```
-    ![Alt text](https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png)
-    ```
-  - ![Alt text](https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png)
-* - ````
-    ```{figure} https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
-       :width: 100px
-       :alt: Alt text
-
-       Figure caption
-    ```
     ````
-  - ```{figure} https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
+  - `````
+    ```{figure} /images/image.png
        :width: 100px
        :alt: Alt text
 
        Figure caption
     ```
-````
-`````
+    `````
+```
 
-``````
+Use `PNG` format for screenshots and `SVG` format for graphics.
 
-Adhere to the following conventions:
-
-- For local pictures, start the path with `/` (for example, `/images/image.png`).
-- Use `PNG` format for screenshots and `SVG` format for graphics.
-- See [Five golden rules for compliant alt
-  text](https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text)
-  for information about how to word the alt text.
+See [Five golden rules for compliant alt
+text](https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text)
+for information about how to word the alt text.
 
 ## Reuse
 
@@ -1405,10 +1324,10 @@ included text.
 * - MyST
   - ````
     % Include parts of the content from
-    % file rst-syntax.rst
-    ```{include} rst-syntax.rst
-        :start-after: "Adhere to the following conventions:"
-        :end-before: "  Use the ones specified above."
+    % file index.rst
+    ```{include} index.rst
+        :start-after: "Also see the following information:"
+        :end-before: "  Contents"
     ```
     ````
 `````
@@ -1428,103 +1347,76 @@ Please note:
 The recommended way of creating tabs is to use the tabs that the [Sphinx
 design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
 
-```````{tab-set}
+```{list-table}
+:header-rows: 1
 
-``````{tab-item} reST
-````
-.. tab-set::
+* - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - ````
+    .. tab-set::
 
-  .. tab-item:: Tab 1
-      :sync: key1
+      .. tab-item:: Tab 1
+          :sync: key1
 
-      Content Tab 1
+          Content Tab 1
 
-  .. tab-item:: Tab 2
-      :sync: key2
+      .. tab-item:: Tab 2
+          :sync: key2
 
-      Content Tab 2
-````
-``````
+          Content Tab 2
+    ````
+  - `````
+    ````{tab-set}
 
-``````{tab-item} MyST
-`````
-````{tab-set}
+    ```{tab-item} Tab 1
+    :sync: key1
 
-```{tab-item} Tab 1
-:sync: key1
+    Content Tab 1
+    ```
 
-Content Tab 1
+    ```{tab-item} Tab 2
+    :sync: key2
+
+    Content Tab 2
+    ```
+
+    ````
+    `````
 ```
-
-```{tab-item} Tab 2
-:sync: key2
-
-Content Tab 2
-```
-
-````
-`````
-``````
-
-```````
 
 ## Glossary
 
 You can define glossary terms in any file. Ideally, all terms should be collected in one
 glossary file though, and they can then be referenced from any file.
 
-```````{tab-set}
-
-``````{tab-item} reST
-````{list-table}
+```{list-table}
 :header-rows: 1
 
-* - Input
-  - Output
-* - ```
+* - Output
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
+* - ```{glossary}
+
+    example term
+      Definition.
+    ```
+  - ````
     .. glossary::
 
-      an example term
-        Definition of an example term.
-    ```
-  - ```{glossary}
-
-    an example term
-      Definition of an example term.
-    ```
-* - `` :term:`an example term` ``
-  - {term}`an example term`
-````
-``````
-
-``````{tab-item} MyST
-`````{list-table}
-:header-rows: 1
-
-* - Input
-  - Output
-* - ````
-
+      example term
+        Definition.
+    ````
+  - ````
     ```{glossary}
 
-    MyST example term
-      Definition of the example term.
+    example term
+      Definition.
     ```
-
     ````
-
-  - ```{glossary}
-
-    MyST example term
-      Definition of the example term.
-    ```
-
-* - ``{term}`MyST example term` ``
-  - {term}`MyST example term`
-`````
-``````
-
-```````
+* - {term}`example term`
+  - `` :term:`example term` ``
+  - `` {term}`example term` ``
+```
 
 ## versionadded
 
@@ -1534,8 +1426,8 @@ This directive can be used to distinguish between different versions.
 :header-rows: 1
 
 * - Output
-  - reST
-  - MyST
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
 * - ```{versionadded} X.Y
     ```
   - `` .. versionadded:: X.Y ``
@@ -1547,14 +1439,14 @@ This directive can be used to distinguish between different versions.
 
 ## Line breaks
 
-This feature includes line breaks that are not paragraphs. Use this sparingly.
+This feature includes line breaks that are not paragraphs.
 
 ```{list-table}
 :header-rows: 1
 
 * - Output
-  - reST
-  - MyST
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
 * - Line 1<br>Line 2<br>Line 3
   - ```
     | Line 1
@@ -1566,40 +1458,40 @@ This feature includes line breaks that are not paragraphs. Use this sparingly.
 
 ## Horizontal line
 
-They visually divide sections on a page.
+This feature visually divides sections on a page.
 
 ```{list-table}
 :header-rows: 1
 
-* - reST
-  - MyST
+* - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
 * - `` ---- ``
   - `` --- ``
 ```
 
 ## Comments
 
-They are not visible in the output.
+This feature makes the text not visible in the output.
 
 ```{list-table}
 :header-rows: 1
 
-* - reST
-  - MyST
+* - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
 * - `` .. This is a comment ``
   - `` <!-- This is a comment --> ``
 ```
 
 ## Abbreviation
 
-Hover to display the full term.
+When this feature is used, users can hover to display the full term.
 
 ```{list-table}
 :header-rows: 1
 
 * - Output
-  - reST
-  - MyST
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
 * - {abbr}`API (Application Programming Interface)`
   - `` :abbr:`API (Application Programming Interface)` ``
   - `` {abbr}`API (Application Programming Interface)` ``
@@ -1607,14 +1499,14 @@ Hover to display the full term.
 
 ## Spell exception
 
-Explicitly exempt a term from the spelling check.
+This feature is used to explicitly exempt a term from the spelling check.
 
 ```{list-table}
 :header-rows: 1
 
 * - Output
-  - reST
-  - MyST
+  - <span style="text-transform: none">reST</span>
+  - <span style="text-transform: none">MyST</span>
 * - {spellexception}`PurposelyWrong`
   - `` :spellexception:`PurposelyWrong` ``
   - `` {spellexception}`PurposelyWrong` ``
