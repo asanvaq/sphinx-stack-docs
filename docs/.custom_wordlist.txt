@@ -5,6 +5,7 @@ Canonical('s)?
 Charmcraft
 cjk
 cryptographically
+discoverability
 dvipng
 fonts
 freefont
@@ -69,6 +70,7 @@ GitHub
 Sphinx
 URL
 PR
+PRs
 Read the Docs
 Spread
 landscape
