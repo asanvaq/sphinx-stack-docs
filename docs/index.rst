@@ -168,8 +168,8 @@ Get involved
 
 * `Sphinx Stack repository <https://github.com/canonical/sphinx-stack>`__
 * `Issue tracker <https://github.com/canonical/sphinx-stack/issues>`__
-* :ref:`Contribution guide <contribute>`
-
+* :ref:`Contribute to documentation <contribute-documentation>`
+* :ref:`Contribute to development <contribute-development>`
 
 Releases
 ~~~~~~~~
