@@ -1,7 +1,7 @@
 .. meta::
     :description: How to verify your documentation's spelling, links, and language with built-in checks.
 
-.. _run-documentation-checks :
+.. _run-documentation-checks:
 
 Run documentation checks
 ========================
