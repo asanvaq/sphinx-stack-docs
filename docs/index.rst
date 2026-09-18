@@ -113,9 +113,12 @@ Upgrade an existing documentation set onto a current version of the Sphinx Stack
         :doc:`Upgrade from a new version <how-to/update-sphinx-stack/new-sphinx-stack>`
         :doc:`Upgrade from the legacy version <how-to/update-sphinx-stack/legacy-sphinx-stack>`
 
-    ..  slice:: Fix issues
+    ..  slice:: Troubleshooting
 
-        :doc:`Troubleshooting <how-to/troubleshooting>`
+        :doc:`Build errors <how-to/troubleshooting/build-errors>`
+        :doc:`Local deployment issues <how-to/troubleshooting/local-deployment-issues>`
+        :doc:`Runtime errors <how-to/troubleshooting/runtime-errors>`
+        :doc:`Read the Docs failures <how-to/troubleshooting/rtd-issues>`
 
 
 How the stack works
