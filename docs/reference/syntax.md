@@ -1,5 +1,5 @@
 ---
-relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+relatedlinks: https://github.com/canonical/canonical-sphinx, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   html_meta:
     description: Reference for the reST and MyST syntax conventions used by Canonical.
@@ -13,7 +13,7 @@ myst:
 # Syntax guide
 
 The Sphinx Stack supports [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html) (reST), [Markdown](https://commonmark.org/) and
-[MyST](https://myst-parser.readthedocs.io/).
+The Sphinx Stack supports [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html) (reST) and [MyST Markdown](https://myst-parser.readthedocs.io/).
 
 See the following sections for syntax help and conventions.
 
@@ -33,7 +33,8 @@ Guide](https://docs.ubuntu.com/styleguide/en).
 
 * - Description
   - <span style="text-transform: none">reST</span>
-  - <span style="text-transform: none">MyST</span>
+  - reST
+  - MyST
 * - Page title and H1 heading
   - ```
     Title
@@ -210,7 +211,7 @@ output line 3
 ```
 
 By default, everything before the first blank line in the directive's content is
-rendered as input, while any content that follows is rendered as output. The terminal
+rendered as input, and any content that follows is rendered as output. The terminal
 directive can only display one input command, but that command can span multiple lines,
 as in the previous example.
 
@@ -428,7 +429,6 @@ to include it in a custom ``reST_epilog`` directive
 custom_reST_epilog = """
     .. include:: reuse/links.txt
     """
-```
 
 ````{list-table}
 :header-rows: 1
@@ -485,7 +485,7 @@ To add a link to a related website, add the following field at the top of the pa
   - `relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [RTFM](https://www.google.com)`
 ```
 
-To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``.
+To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``. For example: ``[My&#32;Title](https://...)``.
 
 To add a link to a Discourse topic, configure the Discourse instance in the `conf.py` file.
 Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic):
@@ -496,7 +496,7 @@ Then add the following field at the top of the page (where ``12345`` is the ID o
 
 ### Manual-page links
 
-When mentioning command line utilities, you may wish to link to the
+When mentioning command-line utilities, you may wish to link to the
 corresponding manual page for the command. Ensure that the ``manpages_url``
 setting in your `conf.py` is set appropriately and use the ``:manpage:``
 inline role within your text to create a link.
@@ -590,7 +590,6 @@ page), add a target label to that section and reference that label.
 You can add labels at any place in the documentation. However, if there is no heading
 or title for the targeted element, you must specify a link text.
 
-To reference a section within the documentation (either on the same page or on another page), add a label to that section and reference that target.
 
 ```{list-table}
 :header-rows: 1
@@ -1294,10 +1293,7 @@ The definitions from the above examples are rendered as follows:
 
 ``````
 
-Please note:
-
-- Substitutions do not work on GitHub. Therefore, use substitution names that indicate
-  the included content (for example, `note_not_supported` instead of `reuse_note`).
+Substitutions do not work on GitHub. Therefore, use substitution names that indicate the included content (for example, `note_not_supported` instead of `reuse_note`).
 
 ### File inclusion
 
