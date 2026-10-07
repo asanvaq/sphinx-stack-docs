@@ -356,8 +356,9 @@ an indication of the link in GitHub rendering.
 To reference a section within the documentation (either on the same page or on another
 page), add a label to that section and reference that label.
 
-You can add labels at any place in the documentation. However, if there is no heading
-or title for the labeled element, you must specify a link text.
+You can add a label anywhere in any document.
+When referencing a label that isn't attached to a heading, you must add link text.
+If you don't, the reference won't work.
 
 (a_random_label_myst)=
 

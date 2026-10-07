@@ -359,7 +359,9 @@ To reference a section within the documentation (either on the same page or on a
 
 .. _a_random_label:
 
-You can add labels at any place in the documentation. However, if there is no heading or title for the labeled element, you must specify a link text.
+ou can add a label anywhere in any document.
+When referencing a label that isn't attached to a heading, you must add link text.
+If you don't, the reference won't work.
 
 .. list-table::
    :header-rows: 1
