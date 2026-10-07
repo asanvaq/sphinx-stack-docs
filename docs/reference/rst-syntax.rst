@@ -359,7 +359,7 @@ To reference a section within the documentation (either on the same page or on a
 
 .. _a_random_label:
 
-ou can add a label anywhere in any document.
+You can add a label anywhere in any document.
 When referencing a label that isn't attached to a heading, you must add link text.
 If you don't, the reference won't work.
 
