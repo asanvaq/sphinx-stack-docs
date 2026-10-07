@@ -668,30 +668,10 @@ The Sphinx Stack can also render interactive tables. See: :ref:`interactive-tabl
 Notes
 -----
 
-.. list-table::
-    :header-rows: 1
+.. code-block:: rst
 
-    * - Input
-      - Output
-    * - .. code::
-
-            .. note::
-              A note.
-      - .. note::
-            A note.
-    * - .. code::
-
-            .. warning::
-              This might damage your hardware!
-      - .. warning::
-            This might damage your hardware!
-
-Adhere to the following conventions:
-
-- Use notes sparingly.
-- Only use the following note types: ``note``, ``warning``
-- Only use a warning if there is a clear hazard of hardware damage or data loss.
-
+    .. admonition:: <title>
+        :class: <class>
 
 Images
 ------
