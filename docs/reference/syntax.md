@@ -350,8 +350,6 @@ documentation.
 Link markup depends on whether you need an external URL
 or a page in the same documentation set.
 
-(reference-external-link-syntax)=
-
 ### External links
 
 For external links, use one of the following methods.
@@ -856,8 +854,6 @@ You can also nest lists:
     ````
 ```
 
-(syntax_tables)=
-
 ## Tables
 
 reST supports different markup for tables. Grid tables are most similar to tables in
@@ -1141,8 +1137,6 @@ for information about how to word the alt text.
 ## Reuse
 
 A big advantage of reST and MyST in comparison to plain Markdown is that they allow to reuse content.
-
-(reference-substitution-syntax)=
 
 ### Substitution
 
