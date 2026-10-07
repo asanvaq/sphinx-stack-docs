@@ -172,7 +172,7 @@ To include a terminal view, use the following directive:
             output line 3
 
 By default, everything before the first blank line in the directive's content is
-rendered as input, while any content that follows is rendered as output. The terminal
+rendered as input, and any content that follows is rendered as output. The terminal
 directive can only display one input command, but that command can span multiple lines,
 as in the previous example.
 
