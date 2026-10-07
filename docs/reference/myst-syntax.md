@@ -14,7 +14,7 @@ myst:
 
 # MyST syntax
 
-The Sphinx Stack supports [Markdown](https://commonmark.org/) and
+The Sphinx Stack supports [MyST Markdown](https://commonmark.org/) and
 [MyST](https://myst-parser.readthedocs.io/).
 
 See the following sections for syntax help and conventions.
