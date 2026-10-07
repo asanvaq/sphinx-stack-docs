@@ -231,7 +231,7 @@ in the directive's options for the button to be displayed.
 
 To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
 
-For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`_.
+For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`__.
 
 
 Links
@@ -258,8 +258,8 @@ Link inline:
      * - Input
        - Output
 
-     * - ```Canonical website <https://canonical.com/>`_``
-       - `Canonical website <https://canonical.com/>`_
+     * - ```Canonical website <https://canonical.com/>`__``
+       - `Canonical website <https://canonical.com/>`__
 
      * - ``:literalref:`ubuntu.com```
        - :literalref:`ubuntu.com`
@@ -709,7 +709,7 @@ Both markups result in the following output:
 
 Customize the column widths, character encoding, and so on, as described in the
 `csv-table reference
-<https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_.
+<https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`__.
 
 The Sphinx Stack can also render interactive tables. See: :ref:`interactive-tables`.
 
@@ -795,7 +795,7 @@ for them in two possible ways.
 
 **Globally**, in a file named ``reuse/substitutions.txt`` that is included in a
 custom ``rst_epilog`` directive (see the `rst_epilog documentation
-<https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_):
+<https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`__):
 
 .. code-block:: python
     :caption: :spellexception:`conf.py`
