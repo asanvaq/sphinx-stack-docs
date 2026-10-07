@@ -268,6 +268,9 @@ documentation.
 
 ### External links
 
+For referencing pages from other documentation sets, you can use
+{ref}`Intersphinx <how-to-link-docs-intersphinx>``.
+
 For external links, use Markdown syntax. You can also use just the URL, but this will
 usually cause issues with the spelling check, so you should specify the link text as
 code in this case.
@@ -345,9 +348,6 @@ To override the title, add the `:title:` option.
 For internal references, both Markdown and MyST syntax are supported. In most cases, you
 should use MyST syntax though, because it resolves the link text automatically and gives
 an indication of the link in GitHub rendering.
-
-For referencing pages from other documentation sets, you can use
-{ref}`Intersphinx <how-to-link-docs-intersphinx>``.
 
 (a_section_label_myst)=
 

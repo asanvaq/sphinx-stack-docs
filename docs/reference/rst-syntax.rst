@@ -246,7 +246,9 @@ or a page in the same documentation set.
 External links
 ~~~~~~~~~~~~~~
 
-Define occasional links directly within the surrounding text.
+For referencing pages from other documentation sets,
+you can use :ref:`Intersphinx <how-to-link-docs-intersphinx>`.
+
 To make the link text show up in code-style (which excludes it from the spelling check), use the ``:literalref:`` role.
 
 .. list-table::
@@ -346,10 +348,6 @@ To override the title, add the ``:title:`` option.
 
 Internal references
 ~~~~~~~~~~~~~~~~~~~
-
-You can reference pages and labels in this documentation set. For referencing pages from other documentation sets,
-you can use :ref:`Intersphinx <how-to-link-docs-intersphinx>`.
-
 
 .. _a_section_label:
 
