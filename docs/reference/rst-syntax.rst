@@ -246,90 +246,40 @@ or a page in the same documentation set.
 External links
 ~~~~~~~~~~~~~~
 
-For external links, use one of the following methods.
+Define occasional links directly within the surrounding text.
+To make the link text show up in code-style (which excludes it from the spelling check), use the ``:literalref:`` role.
 
-Link inline:
-  Define occasional links directly within the surrounding text.
-  To make the link text show up in code-style (which excludes it from the spelling check), use the ``:literalref:`` role.
+.. list-table::
+   :header-rows: 1
 
-  .. list-table::
-     :header-rows: 1
+   * - Input
+     - Output
 
-     * - Input
-       - Output
+   * - ```Canonical website <https://canonical.com/>`__``
+     - `Canonical website <https://canonical.com/>`__
 
-     * - ```Canonical website <https://canonical.com/>`__``
-       - `Canonical website <https://canonical.com/>`__
+   * - ``:literalref:`ubuntu.com```
+     - :literalref:`ubuntu.com`
+   * - ``:literalref:`xyzcommand <https://example.com>```
+     - :literalref:`xyzcommand <https://example.com>`
 
-     * - ``:literalref:`ubuntu.com```
-       - :literalref:`ubuntu.com`
-     * - ``:literalref:`xyzcommand <https://example.com>```
-       - :literalref:`xyzcommand <https://example.com>`
+You can also use a URL as is (``https://example.com``),
+but that might cause spellchecker errors.
 
-  You can also use a URL as is (``https://example.com``),
-  but that might cause spellchecker errors.
+.. tip::
 
-  .. tip::
+   To prevent a URL from appearing as a link,
+   add an escaped space character (``https:\ //``).
+   The space won't be rendered:
 
-     To prevent a URL from appearing as a link,
-     add an escaped space character (``https:\ //``).
-     The space won't be rendered:
+   .. list-table::
+      :header-rows: 1
 
-     .. list-table::
-        :header-rows: 1
+      * - Input
+        - Output
 
-        * - Input
-          - Output
-
-        * - ``https:\ //canonical.com/``
-          - :spellexception:`https://canonical.com/`
-
-
-Define the links at the bottom of the page:
-  To keep the text readable, group the link definitions below.
-
-  .. list-table::
-     :header-rows: 1
-
-     * - Input
-       - Output
-       - Description
-
-     * - ```Canonical website`_``
-       - `Canonical website`_
-       - Using the below defined link
-
-     * - .. code::
-
-            .. LINKS
-            .. _Canonical website: https://canonical.com/
-       - *n/a*
-       - Defining links at the bottom
-
-
-Define the links in a shared file:
-  To keep the text readable and links maintainable,
-  put all link definitions in a file named :file:`reuse/links.txt`
-  to include it in a custom ``rst_epilog`` directive
-  (see the `rst_epilog documentation
-  <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`__).
-
-  .. code-block:: python
-     :caption: :spellexception:`conf.py`
-
-     custom_rst_epilog = """
-         .. include:: reuse/links.txt
-         """
-
-  .. list-table::
-     :header-rows: 1
-
-     * - Input
-       - Output
-
-     * - ```Canonical website`_``
-       - `Canonical website`_
-
+      * - ``https:\ //canonical.com/``
+        - :spellexception:`https://canonical.com/`
 
 Related links
 ^^^^^^^^^^^^^
