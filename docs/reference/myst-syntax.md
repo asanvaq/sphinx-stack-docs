@@ -47,12 +47,6 @@ Guide](https://docs.ubuntu.com/styleguide/en).
   - Further headings
 ```
 
-Adhere to the following conventions:
-
-- Do not use consecutive headings without intervening text.
-- Do not skip levels (for example, do not follow an H2 heading with an H4 heading).
-- Use sentence style for headings (capitalise only the first word).
-
 ## Inline formatting
 
 ```{list-table}
@@ -76,14 +70,6 @@ Adhere to the following conventions:
   - **Bold**
 
 ```
-
-Adhere to the following conventions:
-
-- Use italics sparingly. Common uses for italics are titles and names (for example, when
-  referring to a section title that you cannot link to, or when introducing the name for
-  a concept).
-- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to
-  get your point across.
 
 ## Code blocks
 
@@ -383,16 +369,6 @@ If you don't, the reference won't work.
   - Use Markdown syntax if you need markup on the link text.
 ```
 
-Adhere to the following conventions:
-
-- Never use external links to reference a section in the same doc set or a doc set that
-  is linked with Intersphinx. It would likely cause a broken link in the future.
-- Override the link text only when it is necessary. If you can use the section title as
-  link text, do so, because the text will then update automatically if the title
-  changes.
-- Never "override" the link text with the same text that would be generated
-  automatically.
-
 #### Referencing a page
 
 If a documentation page does not have a label, you can still reference it by using the
@@ -419,16 +395,9 @@ link text. When overriding the link text, use Markdown syntax.
   - Alternative when overriding the link text.
 ```
 
-Adhere to the following conventions:
-
-- Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there is
-  no label at the top of the file and you cannot add it. When using the `{doc}` role,
-  your reference will break when a file is renamed or moved.
-- Override the link text only when it is necessary. If you can use the document title as
-  link text, do so, because the text will then update automatically if the title
-  changes.
-- Never "override" the link text with the same text that would be generated
-  automatically.
+Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there is
+no label at the top of the file and you cannot add it. When using the `{doc}` role,
+your reference will break when a file is renamed or moved.
 
 ## Navigation
 
@@ -509,11 +478,10 @@ To exclude pages from the build, add them to the `exclude_patterns` variable in 
        1. Sub-step 2
 ````
 
-Adhere to the following conventions:
+In numbered lists, use `1.` for all items to generate the step numbers automatically.
+You can also use a higher number for the first item to start with that number.
 
-- In numbered lists, use `1.` for all items to generate the step numbers automatically.
-  You can also use a higher number for the first item to start with that number.
-- Use `-` for unordered lists. When using nested lists, you can use `*` for the nested level.
+Use `-` for unordered lists. When using nested lists, you can use `*` for the nested level.
 
 ### Definition lists
 
@@ -677,11 +645,11 @@ The Sphinx Stack can also render interactive tables. See: {ref}`interactive-tabl
     ```
 ````
 
-Adhere to the following conventions:
+For local pictures, start the path with `/` (for example, `/images/image.png`).
 
-- For local pictures, start the path with `/` (for example, `/images/image.png`).
-- Use `PNG` format for screenshots and `SVG` format for graphics.
-- See [Five golden rules for compliant alt
+Use `PNG` format for screenshots and `SVG` format for graphics.
+
+See [Five golden rules for compliant alt
   text](https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text)
   for information about how to word the alt text.
 
@@ -813,14 +781,14 @@ included text.
 
 `````
 
-Adhere to the following convention:
-
-- File inclusion does not work on GitHub. Therefore, always add a comment linking to the
+File inclusion does not work on GitHub. Therefore, always add a comment linking to the
   included file.
-- Files that only contain text that is reused somewhere else should be placed in the
+
+Files that only contain text that is reused somewhere else should be placed in the
   `reuse` directory and end with the extension ``.txt`` to distinguish them from
   normal content files.
-- To make sure inclusions don't break, consider adding HTML comments (`<!-- some comment
+
+To make sure inclusions don't break, consider adding HTML comments (`<!-- some comment
   -->`) to the source file as markers for starting and ending.
 
 ## Tabs

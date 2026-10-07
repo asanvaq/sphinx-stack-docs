@@ -59,13 +59,6 @@ Headings
 
 Underlines must be at least as long as the title or heading.
 
-Adhere to the following conventions:
-
-- Do not use consecutive headings without intervening text.
-- Be consistent with the characters you use for each level.
-  Use the ones specified above.
-- Use sentence style for headings (capitalise only the first word).
-
 
 Inline formatting
 -----------------
@@ -89,15 +82,6 @@ Inline formatting
      - *Italic*
    * - ``**Bold**``
      - **Bold**
-
-Adhere to the following conventions:
-
-- Use italics sparingly. Common uses for italics are titles and names (for example, when
-  referring to a section title that you cannot link to, or when introducing the name for
-  a concept).
-- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to
-  get your point across.
-
 
 Code blocks
 -----------
@@ -382,12 +366,6 @@ If you don't, the reference won't work.
      - :ref:`Provided link text <a_random_label>`
      - References a label and specifies a title.
 
-Adhere to the following conventions:
-
-- Never use external links to reference a section in the same doc set or a doc set that is linked with Intersphinx. It would likely cause a broken link in the future.
-- Override the link text only when it is necessary. If you can use the referenced title as link text, do so, because the text will then update automatically if the title changes.
-- Never "override" the link text with the same text that would be generated automatically.
-
 
 Referencing a page
 ^^^^^^^^^^^^^^^^^^
@@ -405,16 +383,9 @@ If a documentation page does not have a label, you can still reference it by usi
    * - ``:doc:`Provided link text <index>```
      - :doc:`Provided link text <index>`
 
-Adhere to the following conventions:
-
-- Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
-  is no label at the top of the file and you cannot add it. When using the ``:doc:``
-  role, your reference will break when a file is renamed or moved.
-- Override the link text only when it is necessary. If you can use the document title as
-  link text, do so, because the text will then update automatically if the title
-  changes.
-- Never "override" the link text with the same text that would be generated
-  automatically.
+Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
+is no label at the top of the file and you cannot add it. When using the ``:doc:``
+role, your reference will break when a file is renamed or moved.
 
 Navigation
 ----------
@@ -524,12 +495,11 @@ You can also nest lists:
 
           #. Sub-step 2
 
-Adhere to the following conventions:
+In numbered lists, number the first item and use ``#.`` for all subsequent items to
+generate the step numbers automatically.
 
-- In numbered lists, number the first item and use ``#.`` for all subsequent items to
-  generate the step numbers automatically.
-- Use ``-`` for unordered lists. When using nested lists, you can use ``*`` for the
-  nested level.
+Use ``-`` for unordered lists. When using nested lists, you can use ``*`` for the
+nested level.
 
 
 Definition lists
@@ -696,15 +666,16 @@ Images
 
             Figure caption
 
-Adhere to the following conventions:
+For local pictures, start the path with ``/`` (for example, ``/images/image.png``).
 
-- For local pictures, start the path with ``/`` (for example, ``/images/image.png``).
-- Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
-- If producing multiple output formats, use ``*`` as the file extension to have
-  Sphinx select the best image format for the output
-- See `Five golden rules for compliant alt text
-  <https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text>`__
-  for information about how to word the alt text.
+Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
+
+If producing multiple output formats, use ``*`` as the file extension to have
+Sphinx select the best image format for the output
+
+See `Five golden rules for compliant alt text
+<https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text>`__
+for information about how to word the alt text.
 
 
 Reuse
@@ -794,13 +765,12 @@ replace parts of the included text.
           :start-after: Also see the following information:
           :end-before: Contents
 
-Adhere to the following conventions:
+Files that only contain text that is reused somewhere else should be placed in the
+``reuse`` directory and end with the extension ``.txt`` to distinguish them from
+normal content files.
 
-- Files that only contain text that is reused somewhere else should be placed in the
-  ``reuse`` directory and end with the extension ``.txt`` to distinguish them from
-  normal content files.
-- To make sure inclusions don't break, consider adding comments (``.. some comment``) to
-  the source file as markers for starting and ending.
+To make sure inclusions don't break, consider adding comments (``.. some comment``) to
+the source file as markers for starting and ending.
 
 
 Tabs
