@@ -415,20 +415,20 @@ To override the title, add the ``:title:`` option.
 Internal references
 ~~~~~~~~~~~~~~~~~~~
 
-You can reference pages and targets in this documentation set. For referencing pages from other documentation sets,
+You can reference pages and labels in this documentation set. For referencing pages from other documentation sets,
 you can use :ref:`Intersphinx <how-to-link-docs-intersphinx>`.
 
 
-.. _a_section_target:
+.. _a_section_label:
 
 Referencing a section
 ^^^^^^^^^^^^^^^^^^^^^
 
-To reference a section within the documentation (either on the same page or on another page), add a target to that section and reference that target.
+To reference a section within the documentation (either on the same page or on another page), add a label to that section and reference that label.
 
-.. _a_random_target:
+.. _a_random_label:
 
-You can add targets at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
+You can add labels at any place in the documentation. However, if there is no heading or title for the labeled element, you must specify a link text.
 
 .. list-table::
    :header-rows: 1
@@ -436,18 +436,18 @@ You can add targets at any place in the documentation. However, if there is no h
    * - Input
      - Output
      - Description
-   * - ``.. _target_ID:``
+   * - ``.. _label_ID:``
      -
-     - Adds the target ``target_ID``.
+     - Adds the label ``label_ID``.
 
        .. note::
-          When defining the target, you must prefix it with an underscore. Do not use the starting underscore when referencing the target.
-   * - ``:ref:`a_section_target```
-     - :ref:`a_section_target`
-     - References a target that has a title.
-   * - ``:ref:`Provided link text <a_random_target>```
-     - :ref:`Provided link text <a_random_target>`
-     - References a target and specifies a title.
+          When defining the label, you must prefix it with an underscore. Do not use the starting underscore when referencing the label.
+   * - ``:ref:`a_section_label```
+     - :ref:`a_section_label`
+     - References a label that has a title.
+   * - ``:ref:`Provided link text <a_random_label>```
+     - :ref:`Provided link text <a_random_label>`
+     - References a label and specifies a title.
 
 Adhere to the following conventions:
 
@@ -459,7 +459,7 @@ Adhere to the following conventions:
 Referencing a page
 ^^^^^^^^^^^^^^^^^^
 
-If a documentation page does not have a target, you can still reference it by using the ``:doc:`` role with the file name and path.
+If a documentation page does not have a label, you can still reference it by using the ``:doc:`` role with the file name and path.
 
 .. list-table::
    :header-rows: 1
@@ -475,7 +475,7 @@ If a documentation page does not have a target, you can still reference it by us
 Adhere to the following conventions:
 
 - Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
-  is no target at the top of the file and you cannot add it. When using the ``:doc:``
+  is no label at the top of the file and you cannot add it. When using the ``:doc:``
   role, your reference will break when a file is renamed or moved.
 - Override the link text only when it is necessary. If you can use the document title as
   link text, do so, because the text will then update automatically if the title
@@ -893,8 +893,8 @@ possible. You can combine those with ``:start-line:`` and ``:end-line:`` if requ
 the same text occurs more than once). Using only ``:start-line:`` and ``:end-line:`` is
 error-prone though.
 
-You cannot put any targets into the content that is being reused (because references to
-this target would be ambiguous then). You can, however, put a target right before
+You cannot put any labels into the content that is being reused (because references to
+this label would be ambiguous then). You can, however, put a label right before
 including the file.
 
 By combining file inclusion and substitutions defined directly in a file, you can even
