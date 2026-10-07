@@ -13,8 +13,8 @@ making large datasets more navigable and useful. For examples, see the extension
 documentation.
 
 The extension isn't available by default in the Sphinx Stack. To read more about table
-functionality that is available out of the box, see :ref:`Tables (MyST)
-<myst_style_guide_tables>` and :ref:`Tables (reST) <style-guide-tables>`.
+functionality that is available out of the box, see :ref:`Tables
+<syntax_tables>`
 
 
 Include the ``sphinx-datatables`` extension

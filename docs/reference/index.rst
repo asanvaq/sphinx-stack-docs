@@ -17,5 +17,4 @@ Contents
 
    github-workflows
    default-extensions
-   rst-syntax
-   myst-syntax
+   syntax
