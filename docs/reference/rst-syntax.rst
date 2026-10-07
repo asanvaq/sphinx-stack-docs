@@ -722,33 +722,7 @@ Substitution
 To reuse sentences and entire paragraphs that have little markup or special formatting,
 define `substitutions
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions>`__
-for them in two possible ways.
-
-**Globally**, in a file named ``reuse/substitutions.txt`` that is included in a
-custom ``rst_epilog`` directive (see the `rst_epilog documentation
-<https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`__):
-
-.. code-block:: python
-    :caption: :spellexception:`conf.py`
-
-    rst_epilog = """
-        .. include:: reuse/substitutions.txt
-        """
-
-
-.. code-block:: rest
-    :caption: :spellexception:`reuse/substitutions.txt`
-
-    .. |version_number| replace:: 0.1.0
-
-    .. |rest_text| replace:: *Multi-line* text
-                              that uses basic **markup**.
-
-    .. |site_link| replace:: Website link
-    .. _site_link: https://example.com
-
-
-**Locally**, putting the same directives in any reST file:
+for them by putting the same directives in any reST file:
 
 .. code-block:: rest
     :caption: :spellexception:`index.rst`
@@ -787,13 +761,6 @@ The definitions from the above examples are rendered as follows:
 
     * - ``|site_link|_``
       - |site_link|_
-
-
-.. tip::
-
-    Use substitution names that hint at the included content (for example,
-    ``note_not_supported`` instead of ``note_substitution``).
-
 
 File inclusion
 ~~~~~~~~~~~~~~
