@@ -464,7 +464,7 @@ Instead of hiding pages that you do not want to include in the documentation fro
 navigation, you can exclude them from being built. This method will also prevent them
 from being found through the search.
 
-To exclude pages from the build, add them to the `custom_excludes` variable in the
+To exclude pages from the build, add them to the `exclude_patterns` variable in the
 `conf.py` file.
 ```
 
