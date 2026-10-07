@@ -157,10 +157,9 @@ To include back ticks in a code block, increase the number of surrounding back t
 
 ### Terminal output
 
-A terminal view can be useful to show the output of a specific command, where it is
-important to see the difference between input and output. In addition, including a
-terminal view can help break up a long text and make it easier to consume, which is
-especially useful when documenting command-line-only products.
+A terminal view emulates the command line experience more accurately than a code block.
+This is particularly useful in tutorials or guides that are terminal-heavy, or where
+it's helpful to customize the user/directory each command is run from.
 
 To show a terminal view, use the following directive:
 
