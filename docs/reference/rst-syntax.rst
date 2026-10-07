@@ -758,12 +758,12 @@ replace parts of the included text.
      - Output
    * - .. code::
 
-          .. include:: index.rst
-             :start-after: Also see the following information:
-             :end-before: Contents
-     - .. include:: index.rst
-          :start-after: Also see the following information:
-          :end-before: Contents
+          .. include:: /how-to/index.rst
+            :start-after: .. _how-to-guides:
+            :end-before: =============
+     - .. include:: /how-to/index.rst
+         :start-after: .. _how-to-guides:
+         :end-before: =============
 
 Files that only contain text that is reused somewhere else should be placed in the
 ``reuse`` directory and end with the extension ``.txt`` to distinguish them from

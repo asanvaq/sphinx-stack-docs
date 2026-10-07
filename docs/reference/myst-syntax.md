@@ -762,21 +762,16 @@ included text.
 * - Input
   - Output
 * - ````
-
-    % Include parts of the content from
-    % file rst-syntax.rst
-    ```{include} rst-syntax.rst
-        :start-after: "Adhere to the following conventions:"
-        :end-before: "  Use the ones specified above."
+    ```{include} /how-to/index.rst
+        :start-after: .. _how-to-guides:
+        :end-before: =============
     ```
-
     ````
 
   -
-    % Include parts of the content from file [rst-syntax.rst](rst-syntax.rst)
-    ```{include} rst-syntax.rst
-        :start-after: "Adhere to the following conventions:"
-        :end-before: "  Use the ones specified above."
+    ```{include} /how-to/index.rst
+        :start-after: .. _how-to-guides:
+        :end-before: =============
     ```
 
 `````
