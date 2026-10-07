@@ -103,7 +103,7 @@ Code blocks
 -----------
 
 To start a code block, explicitly start a code block with ``..
-code::``. The code block must be surrounded by empty lines.
+code-block::``. The code block must be surrounded by empty lines.
 
 When explicitly starting a code block, you can specify the code language to enforce a
 specific lexer, but in many cases, the default lexer works just fine.
@@ -118,24 +118,24 @@ For a list of supported languages and their respective lexers, see the official
      - Output
    * - .. code::
 
-          .. code::
+          .. code-block::
 
              # Demonstrate a code block
              code:
              - example: true
-     - .. code::
+     - .. code-block::
 
           # Demonstrate a code block
           code:
           - example: true
    * - .. code::
 
-          .. code:: yaml
+          .. code-block:: yaml
 
              # Demonstrate a code block
              code:
              - example: true
-     - .. code:: yaml
+     - .. code-block:: yaml
 
           # Demonstrate a code block
           code:
