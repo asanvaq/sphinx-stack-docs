@@ -310,7 +310,7 @@ To add a link to a related website, add the following field at the top of the pa
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need
 spaces in the title, replace them with `&#32;`, and include the value in quotes if
-Sphinx complains about the metadata value because it starts with `[`.
+Sphinx complains about the metadata value because it starts with `[`. For example: ``[My&#32;Title](https://...)``.
 
 To add a link to a Discourse topic, configure the Discourse instance in the {file}`conf.py` file.
 Then add the following field at the top of the page (where `12345` is the ID of the Discourse topic):
