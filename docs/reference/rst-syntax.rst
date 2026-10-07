@@ -102,9 +102,8 @@ Adhere to the following conventions:
 Code blocks
 -----------
 
-To start a code block, either end the introductory paragraph with two colons (``::``)
-and indent the following code block, or explicitly start a code block with ``..
-code::``. In both cases, the code block must be surrounded by empty lines.
+To start a code block, explicitly start a code block with ``..
+code::``. The code block must be surrounded by empty lines.
 
 When explicitly starting a code block, you can specify the code language to enforce a
 specific lexer, but in many cases, the default lexer works just fine.
@@ -117,16 +116,6 @@ For a list of supported languages and their respective lexers, see the official
 
    * - Input
      - Output
-   * - .. code::
-
-          Demonstrate a code block::
-
-            code:
-             - example: true
-     - Demonstrate a code block::
-
-         code:
-         - example: true
    * - .. code::
 
           .. code::
