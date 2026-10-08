@@ -249,20 +249,29 @@ README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
 
 ## Links
 
-How to link depends on if you are linking to an external URL or to another page in the
-documentation.
+Link markup depends on whether you need an external URL or a page in the same
+documentation set.
+
 
 ### External links
 
-For referencing pages from other documentation sets, you can use
-{ref}`Intersphinx <how-to-link-docs-intersphinx>`.
-
-For external links, use Markdown syntax. You can also use just the URL, but this will
-usually cause issues with the spelling check, so you should specify the link text as
-code in this case.
+To link to documents in other Sphinx projects, use {ref}`Intersphinx <how-to-link-docs-intersphinx>` with the `{ref}` or `{doc}` role:
 
 ```{list-table}
-   :header-rows: 1
+:header-rows: 1
+
+* - Input
+  - Output
+* - `` {external+ubuntu-desktop:doc}`index` ``
+  - {external+ubuntu-desktop:doc}`index`
+* - `` {external+ubuntu-desktop:ref}`install-ubuntu-desktop` ``
+  - {external+ubuntu-desktop:ref}`install-ubuntu-desktop`
+```
+
+For external links, use Markdown syntax. You can also use just the URL, but this will usually cause issues with the spelling check, so you should specify the link text as code in this case.
+
+```{list-table}
+:header-rows: 1
 
 * - Input
   - Output
@@ -274,83 +283,107 @@ code in this case.
   - [`https://canonical.com`](https://canonical.com)
 ```
 
-To display a URL as text and prevent it from being linked, add a `<span></span>`:
+
+#### Plain text
+
+If you need a link rendered as a plain text, escape the colon in the protocol:
 
 ```{list-table}
-   :header-rows: 1
+:header-rows: 1
 
 * - Input
   - Output
-* - `https:/<span></span>/canonical.com`
-  - {spellexception}`https:/<span></span>/canonical.com`
-
+* - https\\://canonical.com/
+  - {spellexception}`https://canonical.com/`
 ```
 
-#### Related links
+#### Related
 
-You can add links to related websites or Discourse topics to the sidebar
+You can add links to related websites or Discourse topics to the sidebar.
 
-To add a link to a related website, add the following field at the top of the page:
+To add a link to a related website, add the following to the page's Markdown front
+matter:
 
-    relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [RTFM](https://www.google.com)
+```
+---
+relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [RTFM](https://www.google.com)
+---
+```
 
-To override the title, use Markdown syntax. Note that spaces are ignored; if you need
-spaces in the title, replace them with `&#32;`, and include the value in quotes if
-Sphinx complains about the metadata value because it starts with `[`. For example: ``[My&#32;Title](https://...)``.
+If you override the title, note that spaces are ignored; if you need spaces in the title, replace them with `&#32;`, and include the value in quotes if Sphinx complains about the metadata value because it starts with `[`.
+For example: `[My&#32;Title](https://...)`.
 
-To add a link to a Discourse topic, configure the Discourse instance in the {file}`conf.py` file.
-Then add the following field at the top of the page (where `12345` is the ID of the Discourse topic):
+To add a link to a Discourse topic, configure the Discourse instance in the
+:file:`conf.py` file. Then add the following field to the page's Markdown front matter:
 
-    discourse: 12345
+```
+---
+discourse: <topic-id>
+---
+```
 
-#### YouTube links
+
+#### Manual pages
+
+When mentioning command line utilities, you may wish to link to the corresponding manual
+page for the command. Ensure that the `manpages_url` setting in your {file}`conf.py` is
+set appropriately and use the `{manpage}` role within your text to create a link.
+
+For example, to link to man pages from the 24.04 LTS (Noble Numbat) release, include the
+following in your {file}`conf.py`:
+
+```python
+    manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
+```
+
+Then within the document:
+
+```md
+You can use the {manpage}`dd(1)` utility to write the disk image to your
+SD card. If the image is compressed, use {manpage}`aunpack(1)` to extract
+it first.
+```
+
+#### YouTube
 
 To add a link to a YouTube video, use the following directive:
 
 `````{list-table}
-   :header-rows: 1
+:header-rows: 1
 
 * - Input
   - Output
-* - ````
-
-    ```{youtube} https://www.youtube.com/watch?v=iMLiK1fX4I0
-    :title: Demo
-    ```
-
+* - ````markdown
+      ```{youtube} https://www.youtube.com/watch?v=iMLiK1fX4I0
+          :title: Demo
+      ```
     ````
-
-  - ```{youtube} https://www.youtube.com/watch?v=iMLiK1fX4I0
-    :title: Demo
-    ```
-
+  - ````{youtube} https://www.youtube.com/watch?v=iMLiK1fX4I0
+        :title: Demo
+    ````
 `````
 
-The video title is extracted automatically and displayed when hovering over the link.
-To override the title, add the `:title:` option.
+The video title is extracted automatically and displayed when hovering over the link. To
+override the title, add the `{title}` option.
+
 
 ### Internal references
 
-For internal references, both Markdown and MyST syntax are supported. In most cases, you
-should use MyST syntax though, because it resolves the link text automatically and gives
-an indication of the link in GitHub rendering.
 
 (a_section_label_myst)=
-
-#### Referencing a section
+#### Sections
 
 To reference a section within the documentation (either on the same page or on another
 page), add a label to that section and reference that label.
 
-You can add a label anywhere in any document.
-When referencing a label that isn't attached to a heading, you must add link text.
-If you don't, the reference won't work.
+You can add a label anywhere in any document. When referencing a label that isn't
+attached to a heading, you must add link text. If you don't, the reference won't work.
 
 (a_random_label_myst)=
 
 ```{list-table}
-   :header-rows: 1
-   :widths: 7 3 3
+:header-rows: 1
+:widths: 7 3 3
 
 * - Input
   - Output
@@ -369,35 +402,29 @@ If you don't, the reference won't work.
   - Use Markdown syntax if you need markup on the link text.
 ```
 
-#### Referencing a page
+
+#### Pages
 
 If a documentation page does not have a label, you can still reference it by using the
-`{doc}` role with the file name and path. Use MyST syntax to automatically extract the
-link text. When overriding the link text, use Markdown syntax.
+`{doc}` role with the file name and path.
 
 ```{list-table}
-   :header-rows: 1
+:header-rows: 1
+:widths: 8 2
 
 * - Input
   - Output
-  - Status
 * - `` {doc}`index` ``
   - {doc}`index`
-  - Preferred.
-* - `[](index)`
-  - [](index)
-  - Do not use.
-* - `[Index page](index)`
-  - [Index page](index)
-  - Preferred when overriding the link text.
-* - `` {doc}`Index page <index>` ``
-  - {doc}`Index page <index>`
-  - Alternative when overriding the link text.
+* - `` {doc}`Provided link text <index>` ``
+  - {doc}`Provided link text <index>`
 ```
 
-Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there is
-no label at the top of the file and you cannot add it. When using the `{doc}` role,
-your reference will break when a file is renamed or moved.
+Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there
+is no label at the top of the file and you cannot add it. When using the `{doc}`
+role, your reference will break when a file is renamed or moved.
+
+
 
 ## Navigation
 

@@ -221,8 +221,8 @@ For more details, refer to the `sphinx-terminal README <https://github.com/canon
 Links
 -----
 
-Link markup depends on whether you need an external URL
-or a page in the same documentation set.
+Link markup depends on whether you need an external URL or a page in the same
+documentation set.
 
 
 .. _reference-external-link-syntax:
@@ -230,45 +230,77 @@ or a page in the same documentation set.
 External links
 ~~~~~~~~~~~~~~
 
-For referencing pages from other documentation sets,
-you can use :ref:`Intersphinx <how-to-link-docs-intersphinx>`.
-
-To make the link text show up in code-style (which excludes it from the spelling check), use the ``:literalref:`` role.
+To link to documents in other Sphinx projects, use :ref:`Intersphinx
+<how-to-link-docs-intersphinx>` with the ``:ref:`` or ``:doc:`` role:
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Input
-     - Output
+  * - Input
+    - Output
 
-   * - ```Canonical website <https://canonical.com/>`__``
-     - `Canonical website <https://canonical.com/>`__
+  * - .. code-block:: rst
 
-   * - ``:literalref:`ubuntu.com```
-     - :literalref:`ubuntu.com`
-   * - ``:literalref:`xyzcommand <https://example.com>```
-     - :literalref:`xyzcommand <https://example.com>`
+        :external+ubuntu-desktop:doc:`index`
 
-You can also use a URL as is (``https://example.com``),
-but that might cause spellchecker errors.
+    - :external+ubuntu-desktop:doc:`index`
 
-.. tip::
+  * - .. code-block:: rst
 
-   To prevent a URL from appearing as a link,
-   add an escaped space character (``https:\ //``).
-   The space won't be rendered:
+        :external+ubuntu-desktop:ref:`install-ubuntu-desktop`
 
-   .. list-table::
-      :header-rows: 1
+    - :external+ubuntu-desktop:ref:`install-ubuntu-desktop`
 
-      * - Input
-        - Output
+To link to other websites, use the hyperlink reference syntax:
 
-      * - ``https:\ //canonical.com/``
-        - :spellexception:`https://canonical.com/`
+.. list-table::
+  :header-rows: 1
 
-Related links
-^^^^^^^^^^^^^
+  * - Input
+    - Output
+
+  * - .. code-block:: rst
+
+        `Canonical home <https://canonical.com>`__
+
+    - `Canonical home <https://canonical.com>`__
+
+
+If necessary, it's possible to write a standalone hyperlink, which won't contain any
+link text:
+
+.. list-table::
+  :header-rows: 1
+
+  * - Input
+    - Output
+
+  * - .. code-block:: rst
+
+        https://canonical.com
+
+    - https://canonical.com
+
+
+The documentation checks will likely flag it as a spelling error.
+
+
+Plain text
+^^^^^^^^^^
+
+Outside of directives, reST interprets every URL it finds as a hyperlink. If you need a link to be rendered as a plain text, escape the colon in the protocol:
+
+.. list-table::
+  :header-rows: 1
+
+  * - Input
+    - Output
+  * - https\\://canonical.com/
+    - :spellexception:`https://canonical.com/`
+
+
+Related
+^^^^^^^
 
 You can add links to related websites or Discourse topics to the sidebar.
 
@@ -279,19 +311,21 @@ To add a link to a related website, add the following field at the top of the pa
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``.
 For example: ``[My&#32;Title](https://...)``.
 
-To add a link to a Discourse topic, configure the Discourse instance in the :file:`conf.py` file.
-Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
+To add a link to a Discourse topic, configure the Discourse instance in the
+:file:`conf.py` file. Then add the following field at the top of the page:
 
-  :discourse: 12345
+.. code-block:: rst
+
+  :discourse: <topic-id>
 
 
-Manual-page links
-^^^^^^^^^^^^^^^^^
+Manual pages
+^^^^^^^^^^^^
 
 When mentioning command line utilities, you may wish to link to the
 corresponding manual page for the command. Ensure that the ``manpages_url``
 setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
-inline role within your text to create a link.
+role within your text to create a link.
 
 For example, to link to man pages from the 24.04 LTS (Noble Numbat) release,
 include the following in your :file:`conf.py`:
@@ -300,7 +334,7 @@ include the following in your :file:`conf.py`:
 
     manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
 
-Then within your documentation, use the following reST:
+Then within the document, use the following reST:
 
 .. code-block:: rst
 
@@ -309,8 +343,8 @@ Then within your documentation, use the following reST:
     it first.
 
 
-YouTube links
-^^^^^^^^^^^^^
+YouTube
+^^^^^^^
 
 To add a link to a YouTube video, use the following directive:
 
@@ -336,8 +370,8 @@ Internal references
 
 .. _a_section_label:
 
-Referencing a section
-^^^^^^^^^^^^^^^^^^^^^
+Sections
+^^^^^^^^
 
 To reference a section within the documentation (either on the same page or on another page), add a label to that section and reference that label.
 
@@ -367,8 +401,8 @@ If you don't, the reference won't work.
      - References a label and specifies a title.
 
 
-Referencing a page
-^^^^^^^^^^^^^^^^^^
+Pages
+^^^^^
 
 If a documentation page does not have a label, you can still reference it by using the ``:doc:`` role with the file name and path.
 
@@ -386,6 +420,29 @@ If a documentation page does not have a label, you can still reference it by usi
 Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
 is no label at the top of the file and you cannot add it. When using the ``:doc:``
 role, your reference will break when a file is renamed or moved.
+
+
+Formatted link text
+~~~~~~~~~~~~~~~~~~~
+
+With the exception of inline code, reST doesn't support special formatting for link
+text, such as *emphasized* and **strong** text.
+
+Use the ``:literalref:`` role to format a reference's link text as inline code:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Output
+
+   * - ``:literalref:`example <https://example.com>```
+     - :literalref:`example <https://example.com>`
+   * - ``:literalref:`label <a_random_label>```
+     - :literalref:`label <a_random_label>`
+
+The link text is automatically excluded from the spelling check.
+
 
 Navigation
 ----------
@@ -695,7 +752,7 @@ define `substitutions
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions>`__
 for them by putting the same directives in any reST file:
 
-.. code-block:: rest
+.. code-block:: rst
     :caption: :spellexception:`index.rst`
 
     .. |version_number| replace:: 0.1.0

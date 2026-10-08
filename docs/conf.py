@@ -251,6 +251,10 @@ else:
 # Add configuration for intersphinx mapping
 # Map only the Sphinx documentation sets that you need to link to from your docs set.
 intersphinx_mapping = {
+    "ubuntu-desktop": (
+        "https://ubuntu.com/desktop/docs/en/latest",
+        None,
+    ),
     "sphinxcontrib-mermaid": (
         "https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest",
         None,
