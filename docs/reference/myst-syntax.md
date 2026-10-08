@@ -75,8 +75,6 @@ directive inside a directive, add an extra backtick to the outermost block's fen
 
 Additional levels of nesting require additional backticks for each parent block.
 
-
-
 ## Inline formatting
 
 ```{list-table}
@@ -282,7 +280,6 @@ README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
 Link markup depends on whether you need an external URL or a page in the same
 documentation set.
 
-
 ### External links
 
 To link to documents in other Sphinx projects, use {ref}`Intersphinx <how-to-link-docs-intersphinx>` with the `{ref}` or `{doc}` role:
@@ -312,7 +309,6 @@ For external links, use Markdown syntax. You can also use just the URL, but this
 * - ``[`https://canonical.com`](https://canonical.com)``
   - [`https://canonical.com`](https://canonical.com)
 ```
-
 
 #### Plain text
 
@@ -351,7 +347,6 @@ To add a link to a Discourse topic, configure the Discourse instance in the
 discourse: <topic-id>
 ---
 ```
-
 
 #### Manual pages
 
@@ -396,11 +391,10 @@ To add a link to a YouTube video, use the following directive:
 The video title is extracted automatically and displayed when hovering over the link. To
 override the title, add the `{title}` option.
 
-
 ### Internal references
 
-
 (a_section_label_myst)=
+
 #### Sections
 
 To reference a section within the documentation (either on the same page or on another
@@ -432,7 +426,6 @@ attached to a heading, you must add link text. If you don't, the reference won't
   - Use Markdown syntax if you need markup on the link text.
 ```
 
-
 #### Pages
 
 If a documentation page does not have a label, you can still reference it by using the
@@ -453,8 +446,6 @@ If a documentation page does not have a label, you can still reference it by usi
 Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there
 is no label at the top of the file and you cannot add it. When using the `{doc}`
 role, your reference will break when a file is renamed or moved.
-
-
 
 ## Navigation
 
