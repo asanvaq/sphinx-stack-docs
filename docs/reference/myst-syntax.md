@@ -47,6 +47,36 @@ Guide](https://docs.ubuntu.com/styleguide/en).
   - Further headings
 ```
 
+## Nesting
+
+In MyST, triple backticks (` ``` `) wrap both code blocks and directives, which can
+cause collisions if you need to place one element inside of another. To nest code or a
+directive inside a directive, add an extra backtick to the outermost block's fences:
+
+```````{list-table}
+:header-rows: 1
+:widths: 1 1
+
+* - Input
+  - Output
+* - `````
+    ````{admonition} Nested code block
+    ```python
+    import pathlib
+    ```
+    ````
+    `````
+  - ````{admonition} Nested code block
+    ```python
+    import pathlib
+    ```
+    ````
+```````
+
+Additional levels of nesting require additional backticks for each parent block.
+
+
+
 ## Inline formatting
 
 ```{list-table}
