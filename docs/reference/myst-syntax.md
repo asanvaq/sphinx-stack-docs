@@ -1,5 +1,5 @@
 ---
-relatedlinks: [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+relatedlinks: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html, [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   html_meta:
     description: Reference for the MyST syntax conventions used by Canonical.
