@@ -1,7 +1,7 @@
 .. meta::
     :description: Reference for the reStructuredText syntax conventions used by Canonical.
 
-:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+:relatedlinks: [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
 .. _rst-syntax:
 
@@ -17,7 +17,7 @@ See the following sections for syntax help and conventions.
 
     This guide assumes that you are using the `Sphinx Stack
     <https://github.com/canonical/sphinx-stack>`__. Some of the mentioned syntax
-    requires Sphinx extensions (which are enabled in the Sphinx Stack).
+    requires the Sphinx extensions enabled in the Sphinx Stack.
 
 For general style conventions, see the `Canonical Documentation Style Guide
 <https://docs.ubuntu.com/styleguide/en>`__.
@@ -125,7 +125,7 @@ Terminal output
 
 A terminal view emulates the command line experience more accurately than a code block.
 This is particularly useful in tutorials or guides that are terminal-heavy, or where
-it's helpful to customize the user/directory each command is run from.
+it's helpful to show the directory a command is run from.
 
 To include a terminal view, use the following directive:
 
@@ -288,7 +288,7 @@ The documentation checks will likely flag it as a spelling error.
 Plain text
 ^^^^^^^^^^
 
-Outside of directives, reST interprets every URL it finds as a hyperlink. If you need a link to be rendered as a plain text, escape the colon in the protocol:
+Outside of directives, reST interprets every URL it finds as a hyperlink. If you need a link to be rendered as plain text, escape the colon in the protocol:
 
 .. list-table::
   :header-rows: 1
@@ -299,8 +299,8 @@ Outside of directives, reST interprets every URL it finds as a hyperlink. If you
     - :spellexception:`https://canonical.com/`
 
 
-Related
-^^^^^^^
+Sidebar links
+^^^^^^^^^^^^^
 
 You can add links to related websites or Discourse topics to the sidebar.
 
@@ -312,7 +312,7 @@ To override the title, use Markdown syntax. Note that spaces are ignored; if you
 For example: ``[My&#32;Title](https://...)``.
 
 To add a link to a Discourse topic, configure the Discourse instance in the
-:file:`conf.py` file. Then add the following field at the top of the page:
+`conf.py` file. Then add the following field at the top of the page:
 
 .. code-block:: rst
 
@@ -322,7 +322,7 @@ To add a link to a Discourse topic, configure the Discourse instance in the
 Manual pages
 ^^^^^^^^^^^^
 
-When mentioning command line utilities, you may wish to link to the
+When mentioning command-line utilities, you may wish to link to the
 corresponding manual page for the command. Ensure that the ``manpages_url``
 setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
 role within your text to create a link.
@@ -689,7 +689,8 @@ Customize the column widths, character encoding, and so on, as described in the
 `csv-table reference
 <https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`__.
 
-The Sphinx Stack can also render interactive tables. See: :ref:`interactive-tables`.
+The Sphinx Stack can also render interactive tables, which are described in
+:ref:`interactive-tables`.
 
 
 Notes
@@ -738,8 +739,8 @@ for information about how to word the alt text.
 Reuse
 -----
 
-A big advantage of reST in comparison to plain Markdown is that it allows to reuse
-content.
+A big advantage of reST in comparison to plain Markdown is that it allows the reuse
+of content.
 
 
 .. _reference-substitution-syntax:
@@ -797,8 +798,8 @@ To reuse longer sections or text with more advanced markup, you can put the cont
 separate file and include the file or parts of the file in several locations.
 
 To select parts of the text in a file, use ``:start-after:`` and ``:end-before:`` if
-possible. You can combine those with ``:start-line:`` and ``:end-line:`` if required (if
-the same text occurs more than once). Using only ``:start-line:`` and ``:end-line:`` is
+possible. You can combine those with ``:start-line:`` and ``:end-line:`` if
+the same text occurs more than once. Using only ``:start-line:`` and ``:end-line:`` is
 error-prone though.
 
 You cannot put any labels into the content that is being reused (because references to
@@ -833,8 +834,8 @@ the source file as markers for starting and ending.
 Tabs
 ----
 
-The recommended way of creating tabs is to use the tabs that the `Sphinx design
-<https://sphinx-design.readthedocs.io/en/latest/>`__ extension provides.
+The recommended way of creating tabs is with the `Sphinx design
+<https://sphinx-design.readthedocs.io/en/latest/>`__ extension.
 
 .. list-table::
     :header-rows: 1
@@ -871,7 +872,7 @@ Glossary
 --------
 
 You can define glossary terms in any file. Ideally, all terms should be collected in one
-glossary file though, and they can then be referenced from any file.
+glossary so they can then be referenced from any file.
 
 .. list-table::
     :header-rows: 1
