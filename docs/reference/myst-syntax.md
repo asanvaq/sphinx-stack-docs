@@ -1,5 +1,5 @@
 ---
-relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+relatedlinks: [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   html_meta:
     description: Reference for the MyST syntax conventions used by Canonical.
@@ -14,15 +14,14 @@ myst:
 
 # MyST syntax
 
-The Sphinx Stack supports [MyST Markdown](https://commonmark.org/) and
-[MyST](https://myst-parser.readthedocs.io/).
+The Sphinx Stack supports [MyST Markdown](https://myst-parser.readthedocs.io).
 
 See the following sections for syntax help and conventions.
 
 ```{note}
 This guide assumes that you are using the [Sphinx
 Stack](https://github.com/canonical/sphinx-stack). Some of the mentioned syntax requires
-Sphinx extensions (which are enabled in the Sphinx Stack).
+the Sphinx extensions enabled in the Sphinx Stack.
 ```
 
 For general style conventions, see the [Canonical Documentation Style
@@ -50,8 +49,8 @@ Guide](https://docs.ubuntu.com/styleguide/en).
 ## Nesting
 
 In MyST, triple backticks (` ``` `) wrap both code blocks and directives, which can
-cause collisions if you need to place one element inside of another. To nest code or a
-directive inside a directive, add an extra backtick to the outermost block's fences:
+cause collisions if you need to place one element inside another. To nest a code block
+or directive inside another, add an extra backtick to the outer element's fences:
 
 ```````{list-table}
 :header-rows: 1
@@ -102,8 +101,6 @@ Additional levels of nesting require additional backticks for each parent block.
 ## Code blocks
 
 Start and end a code block with three back ticks:
-
-    ```
 
 `````{list-table}
    :header-rows: 1
@@ -173,7 +170,7 @@ To include back ticks in a code block, increase the number of surrounding back t
 
 A terminal view emulates the command line experience more accurately than a code block.
 This is particularly useful in tutorials or guides that are terminal-heavy, or where
-it's helpful to customize the user/directory each command is run from.
+it's helpful to show the directory a command is run from.
 
 To show a terminal view, use the following directive:
 
@@ -312,7 +309,7 @@ For external links, use Markdown syntax. You can also use just the URL, but this
 
 #### Plain text
 
-If you need a link rendered as a plain text, escape the colon in the protocol:
+If you need a link rendered as plain text, escape the colon in the protocol:
 
 ```{list-table}
 :header-rows: 1
@@ -323,7 +320,7 @@ If you need a link rendered as a plain text, escape the colon in the protocol:
   - {spellexception}`https://canonical.com/`
 ```
 
-#### Related
+#### Sidebar links
 
 You can add links to related websites or Discourse topics to the sidebar.
 
@@ -656,7 +653,8 @@ Both markups result in the following output:
 Customize the column widths, character encoding, and so on, as described in the 
 [`csv-table` reference](https://mystmd.org/guide/directives#directive-csv-table).
 
-The Sphinx Stack can also render interactive tables. See: {ref}`interactive-tables`.
+The Sphinx Stack can also render interactive tables, which are described in
+{ref}`interactive-tables`.
 
 ## Notes
 
@@ -703,7 +701,7 @@ See [Five golden rules for compliant alt
 
 ## Reuse
 
-A big advantage of MyST in comparison to plain Markdown is that it allows to reuse content.
+A big advantage of MyST in comparison to plain Markdown is that it allows the reuse of content.
 
 ### Substitution
 
@@ -782,10 +780,8 @@ The definitions from the above examples are rendered as follows:
   - {{advanced_reuse_key}}
 ```
 
-Adhere to the following convention:
-
-- Substitutions do not work on GitHub. Therefore, use substitution names that indicate
-  the included content (for example, `note_not_supported` instead of `reuse_note`).
+Content isn't substituted on GitHub, so use substitution names that indicate
+the included content (for example, `note_not_supported` instead of `reuse_note`).
 
 ### File inclusion
 
@@ -793,8 +789,8 @@ To reuse longer sections or text with more advanced markup, you can put the cont
 separate file and include the file or parts of the file in several locations.
 
 To select parts of the text in a file, use `:start-after:` and `:end-before:` if
-possible. You can combine those with `:start-line:` and `:end-line:` if required (if the
-same text occurs more than once). Using only `:start-line:` and `:end-line:` is
+possible. You can combine those with `:start-line:` and `:end-line:` if the
+same text occurs more than once. Using only `:start-line:` and `:end-line:` is
 error-prone though.
 
 You cannot put any labels into the content that is being reused (because references to
@@ -824,20 +820,20 @@ included text.
 
 `````
 
-File inclusion does not work on GitHub. Therefore, always add a comment linking to the
-  included file.
+File inclusion does not work on GitHub, so you should always add a comment linking to the
+included file.
 
 Files that only contain text that is reused somewhere else should be placed in the
-  `reuse` directory and end with the extension ``.txt`` to distinguish them from
-  normal content files.
+`reuse` directory and end with the extension ``.txt`` to distinguish them from
+normal content files.
 
 To make sure inclusions don't break, consider adding HTML comments (`<!-- some comment
-  -->`) to the source file as markers for starting and ending.
+-->`) to the source file as markers for starting and ending.
 
 ## Tabs
 
-The recommended way of creating tabs is to use the tabs that the [Sphinx
-design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
+The recommended way of creating tabs is with the [Sphinx
+design](https://sphinx-design.readthedocs.io/en/latest/) extension.
 
 ``````{list-table}
    :header-rows: 1
@@ -880,48 +876,6 @@ design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
     ````
 ``````
 
-Alternatively, you can use the [Sphinx
-tabs](https://sphinx-tabs.readthedocs.io/en/latest/) extension, which is also enabled by
-default. This was previously recommended due to limitations in Sphinx Design that are
-now fixed.
-
-``````{list-table}
-   :header-rows: 1
-
-* - Input
-  - Output
-* - `````
-
-    ````{tabs}
-
-    ```{group-tab} Tab 1
-
-    Content Tab 1
-    ```
-
-    ```{group-tab} Tab 2
-
-    Content Tab 2
-    ```
-
-    ````
-
-    `````
-
-  - ````{tabs}
-
-    ```{group-tab} Tab 1
-
-    Content Tab 1
-    ```
-
-    ```{group-tab} Tab 2
-
-    Content Tab 2
-    ```
-    ````
-``````
-
 ## Collapsible sections
 
 There is no support for details sections in MyST, but you can insert HTML to create
@@ -951,7 +905,7 @@ them.
 ## Glossary
 
 You can define glossary terms in any file. Ideally, all terms should be collected in one
-glossary file though, and they can then be referenced from any file.
+glossary so they can then be referenced from any file.
 
 `````{list-table}
    :header-rows: 1
